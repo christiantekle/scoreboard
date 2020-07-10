@@ -29,10 +29,22 @@ const deleteGames = async (ctx) => {
     });
     ctx.body = { status: "Game deleted!" };
   } catch (err) {
-      ctx.body = "Error: " +err;
+    ctx.body = "Error: " + err;
+  }
+};
+
+const getDetails = async (ctx) => {
+  try {
+    const game = await Game.find({
+      _id: ctx.params.id,
+    });
+    ctx.body = game;
+  } catch (err) {
+    ctx.body = "Error: " + err;
   }
 };
 
 module.exports.getGames = getGames;
 module.exports.addGames = addGames;
 module.exports.deleteGames = deleteGames;
+module.exports.getDetails = getDetails;
