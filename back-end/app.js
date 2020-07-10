@@ -3,8 +3,10 @@ const app = new Koa();
 const bodyParser = require("koa-body");
 const mongoose = require('mongoose');
 
+const games = require('./routes/games')
+
 app.use(bodyParser());
-app.use(async (ctx) => (ctx.body = "hello world!"));
+app.use(games.routes());
 
 mongoose.connect("mongodb://localhost/scoreboard", { useNewUrlParser: true, useUnifiedTopology: true});
 
