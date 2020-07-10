@@ -3,5 +3,6 @@ const router = new Router();
 const gameController = require("../controller/gameController");
 
 router.get("/api/games", gameController.getGames);
+router.post("/api/games", gameController.addGames);
 
 module.exports = router;

@@ -3,14 +3,9 @@ const Schema = mongoose.Schema;
 const ObjectId = require('mongodb').ObjectID;
 
 const GameSchema = new Schema({
-  game: {
-    game_name: String,
-    players: {
-        id: ObjectId,  
-        username: String,
-        score: String      
-      }
-  },
+  game_name: {
+     type: String
+     },
   
 });
 
