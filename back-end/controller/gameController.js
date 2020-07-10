@@ -22,6 +22,17 @@ const addGames = async (ctx) => {
     ctx.body = "Error: " + err;
   }
 };
+const deleteGames = async (ctx) => {
+  try {
+    await Game.deleteOne({
+      _id: ctx.params.id,
+    });
+    ctx.body = { status: "Game deleted!" };
+  } catch (err) {
+      ctx.body = "Error: " +err;
+  }
+};
 
-module.exports.addGames = addGames;
 module.exports.getGames = getGames;
+module.exports.addGames = addGames;
+module.exports.deleteGames = deleteGames;
