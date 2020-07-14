@@ -11,7 +11,8 @@ const getGames = async (ctx) => {
 
 const addGames = async (ctx) => {
   if (!ctx.request.body.game_name) {
-    ctx.body = { error: "Bad data" };
+  ctx.body = { error: "Bad data" };
+  return;
   }
   try {
     var game = new Game();
