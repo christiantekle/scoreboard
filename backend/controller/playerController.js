@@ -1,19 +1,36 @@
 const Game = require("../models/game");
+const Player = require("../models/Player");
 
 const addPlayer = async (ctx) => {
-  if (!ctx.request.body.player_name) {
+  const { body } = ctx.request;
+  if (!body.name) {
     ctx.body = { error: "Bad data" };
   }
-  // Game.create(ctx.body)
-  // .then( (data) => {
-  //   return Game.findByIdAndUpdate({_id: ctx.params.id}, {$push: {}}, {new: true})
-  // })
-  // .then((games) => {
-  //   ctx.body = games;
-  // })
-  // .catch((err) => {
-  //   ctx.body = "Error " +err;
-  // })
+
+  // await Game.update(
+  //   {
+  //     name: ctx.params.id
+  //   }, 
+  //   {
+  //     $push: {
+  //       players: player
+  //     } 
+  //   }
+  // );
+
+  var player = new Player();
+  player.name = body.name;
+  player.score = 0;
+  const playerObj = await player.save();
+
+  const game = await Game.findById(ctx.params.id).exec();
+
+  game.players.push(playerObj._id);
+  await game.save();
+
+  ctx.body = "saved";
 };
+
+
 
 module.exports.addPlayer = addPlayer;

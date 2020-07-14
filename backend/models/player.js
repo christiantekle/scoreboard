@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const playerSchema = new Schema({
-  player_name: {
+  name: {
       type: String
   },
   score: String,
- 
 });
 
-module.exports = Player = mongoose.model("players", playerSchema);
+module.exports = Player = mongoose.model("Player", playerSchema);

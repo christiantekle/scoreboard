@@ -9,36 +9,37 @@ const getGames = async (ctx) => {
   }
 };
 
-const addGames = async (ctx) => {
-  if (!ctx.request.body.game_name) {
-  ctx.body = { error: "Bad data" };
-  return;
+const createGame = async (ctx) => {
+  if (!ctx.request.body.name) {
+    ctx.body = { error: "Bad data" };
+    return;
   }
+
   try {
     var game = new Game();
-    game.game_name = ctx.request.body.game_name;
+    game.name = ctx.request.body.name;
     const data = await game.save();
     ctx.body = data;
   } catch (err) {
     ctx.body = "Error: " + err;
   }
 };
-const deleteGames = async (ctx) => {
+
+const deleteGame = async (ctx) => {
   try {
     await Game.deleteOne({
       _id: ctx.params.id,
     });
+
     ctx.body = { status: "Game deleted!" };
   } catch (err) {
     ctx.body = "Error: " + err;
   }
 };
 
-const getDetails = async (ctx) => {
+const getGame = async (ctx) => {
   try {
-    const game = await Game.find({
-      _id: ctx.params.id,
-    });
+    const game = await Game.findById(ctx.params.id).populate('players').exec();
     ctx.body = game;
   } catch (err) {
     ctx.body = "Error: " + err;
@@ -46,6 +47,6 @@ const getDetails = async (ctx) => {
 };
 
 module.exports.getGames = getGames;
-module.exports.addGames = addGames;
-module.exports.deleteGames = deleteGames;
-module.exports.getDetails = getDetails;
+module.exports.createGame = createGame;
+module.exports.deleteGame = deleteGame;
+module.exports.getGame = getGame;
