@@ -34,12 +34,22 @@ const addPlayer = async (ctx) => {
 
 const getPlayer = async (ctx) => {
   try {
-    const player = await Player.find({name: 'John'}).populate("players").exec();
+    const player = await Player.find({name: 'John'}).exec();
     ctx.body = player;
   } catch (err) {
     ctx.body = "Error: " + err;
   }
 };
 
+const addScore = async (ctx) => {
+try {
+  await Player.updateOne({name: 'John'}, { score: 22 })
+ 
+} catch (err) {
+  ctx.body = "Error: " +err;
+}
+}
+
 module.exports.addPlayer = addPlayer;
 module.exports.getPlayer = getPlayer;
+module.exports.addScore = addScore;
