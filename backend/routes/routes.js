@@ -9,4 +9,6 @@ router.delete("/api/games/:id", gameController.deleteGame);
 router.get("/api/games/:id", gameController.getGame);
 
 router.put("/api/games/:id", playerController.addPlayer);
+router.get("/api/players/:id", playerController.getPlayer);
+
 module.exports = router;

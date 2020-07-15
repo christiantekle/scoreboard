@@ -5,16 +5,17 @@ const addPlayer = async (ctx) => {
   const { body } = ctx.request;
   if (!body.name) {
     ctx.body = { error: "Bad data" };
+    return;
   }
 
   // await Game.update(
   //   {
   //     name: ctx.params.id
-  //   }, 
+  //   },
   //   {
   //     $push: {
   //       players: player
-  //     } 
+  //     }
   //   }
   // );
 
@@ -31,6 +32,14 @@ const addPlayer = async (ctx) => {
   ctx.body = "saved";
 };
 
-
+const getPlayer = async (ctx) => {
+  try {
+    const player = await Player.find({name: 'John'}).populate("players").exec();
+    ctx.body = player;
+  } catch (err) {
+    ctx.body = "Error: " + err;
+  }
+};
 
 module.exports.addPlayer = addPlayer;
+module.exports.getPlayer = getPlayer;
