@@ -42,6 +42,11 @@ const getPlayer = async (ctx) => {
 };
 
 const addScore = async (ctx) => {
+  var game = new Game();
+  if(game.status === 'finished') {
+    ctx.body = "Game Over";
+    return;
+  }
   const { body } = ctx.request;
    try {
     await Player.updateOne({ _id: ctx.params.id }, { score: body.score });

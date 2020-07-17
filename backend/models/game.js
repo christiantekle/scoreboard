@@ -9,6 +9,9 @@ const GameSchema = new Schema({
     type: mongoose.Types.ObjectId,
     ref: "Player"
   }],
+  status: {
+    type: String,
+  } 
 });
 
 module.exports = Game = mongoose.model("game", GameSchema);
