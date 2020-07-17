@@ -58,8 +58,19 @@ const startGame = async (ctx) => {
   }
 };
 
+const finishGame = async (ctx) => {
+  try {
+    const game = await Game.findById(ctx.params.id);
+    game.status = "Game Over";
+    await game.save();
+    ctx.body = "Game Over";
+  } catch (err) {
+    ctx.body = "Error: " +err;
+  }
+}
 module.exports.getGames = getGames;
 module.exports.createGame = createGame;
 module.exports.deleteGame = deleteGame;
 module.exports.getGame = getGame;
 module.exports.startGame = startGame;
+module.exports.finishGame = finishGame;

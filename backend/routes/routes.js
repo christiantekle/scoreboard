@@ -7,7 +7,8 @@ router.get("/api/games", gameController.getGames);
 router.post("/api/games", gameController.createGame);
 router.delete("/api/games/:id", gameController.deleteGame);
 router.get("/api/games/:id", gameController.getGame);
-router.put("/api/status/:id", gameController.startGame);
+// router.put("/api/status/:id", gameController.startGame);
+router.put("/api/status/:id", gameController.finishGame);
 
 router.put("/api/games/:id", playerController.addPlayer);
 router.get("/api/players/:id", playerController.getPlayer);
