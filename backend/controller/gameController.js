@@ -47,30 +47,24 @@ const getGame = async (ctx) => {
   }
 };
 
-const startGame = async (ctx) => {
+const changeGameStatus = async (ctx) => {
   try {
     const game = await Game.findById(ctx.params.id);
-    game.status = "Game started";
-    await game.save();
-    ctx.body = "Game started";
+    let status = "Game Started";
+    if (ctx.request.body.status === "Finish") {
+      status = "Game Over";
+      ctx.body = status;
+      return;
+    }
+    game.status = status;
+    ctx.body = game.status;
   } catch (err) {
     ctx.body = "Error: " + err;
   }
 };
 
-const finishGame = async (ctx) => {
-  try {
-    const game = await Game.findById(ctx.params.id);
-    game.status = "Game Over";
-    await game.save();
-    ctx.body = "Game Over";
-  } catch (err) {
-    ctx.body = "Error: " +err;
-  }
-}
 module.exports.getGames = getGames;
 module.exports.createGame = createGame;
 module.exports.deleteGame = deleteGame;
 module.exports.getGame = getGame;
-module.exports.startGame = startGame;
-module.exports.finishGame = finishGame;
+module.exports.changeGameStatus = changeGameStatus;

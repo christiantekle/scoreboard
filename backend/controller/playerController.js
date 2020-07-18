@@ -43,7 +43,7 @@ const getPlayer = async (ctx) => {
 
 const addScore = async (ctx) => {
   var game = new Game();
-  if(game.status === 'finished') {
+  if(game.status === 'Game Over') {
     ctx.body = "Game Over";
     return;
   }
