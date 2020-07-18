@@ -53,10 +53,9 @@ const changeGameStatus = async (ctx) => {
     let status = "Game Started";
     if (ctx.request.body.status === "Finish") {
       status = "Game Over";
-      ctx.body = status;
-      return;
     }
     game.status = status;
+    await game.save();
     ctx.body = game.status;
   } catch (err) {
     ctx.body = "Error: " + err;
