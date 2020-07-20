@@ -43,13 +43,17 @@ const getPlayer = async (ctx) => {
 
 const addScore = async (ctx) => {
   var game = new Game();
-  if(game.status === 'Game Over') {
+  if (game.status === "Game Over") {
     ctx.body = "Game Over";
     return;
   }
   const { body } = ctx.request;
-   try {
-    await Player.updateOne({ _id: ctx.params.id }, { score: body.score });
+  try {
+    await Player.updateOne(
+      { _id: ctx.params.id },
+      { score: body.score }
+    );
+    
     ctx.body = "score updated";
   } catch (err) {
     ctx.body = "Error: " + err;
