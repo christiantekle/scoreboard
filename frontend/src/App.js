@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
-
+import React from "react";
+import { Button, Container } from "@material-ui/core";
+import Header from "./components/layout/Header"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Test</h1>
-        <p>Text here....</p>
-      </header>
+    <div>
+      <Container maxWidth="sm">
+         <Header />
+       <Button color="primary">Primary</Button>
+      </Container>
     </div>
   );
 }
