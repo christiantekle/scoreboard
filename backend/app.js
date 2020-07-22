@@ -3,7 +3,7 @@ const app = new Koa();
 const bodyParser = require("koa-body");
 const mongoose = require('mongoose');
 
-const games = require('./routes/games')
+const games = require('./routes/routes')
 
 app.use(bodyParser());
 app.use(games.routes());

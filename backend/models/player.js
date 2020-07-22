@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const playerSchema = new Schema({
   name: {
-      type: String
+    type: String,
   },
   score: String,
 });
