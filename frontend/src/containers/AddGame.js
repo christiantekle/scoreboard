@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 class AddGame extends Component {
   state = {
@@ -32,4 +31,4 @@ class AddGame extends Component {
     );
   }
 }
-export default connect()(AddGame);
+export default AddGame;
