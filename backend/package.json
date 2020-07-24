@@ -13,8 +13,8 @@
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-router": "^9.1.0",
-    "mongoose": "^5.9.22",
-    "sequelize": "^6.3.0"
+    "mongoose": "^5.9.25",
+    "sequelize": "^6.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

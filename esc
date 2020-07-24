@@ -1,0 +1,156 @@
+[33mcommit cd60b0c8d112c554a4960b27a64e23061956af9d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Thu Jul 23 05:21:00 2020 +0400
+
+    action and reducer functions to add a game implemented
+
+[33mcommit 912892092453f50db42e7063871a352cf89e837d[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Thu Jul 23 02:48:13 2020 +0400
+
+    Tabs created
+
+[33mcommit 1cab678de816f6e4333dcb07e0f4becf0bbfca6a[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Wed Jul 22 15:49:28 2020 +0400
+
+    frontend first commit
+
+[33mcommit 9edecec28fde9684fad0afc0832e4f1d8eb0f483[m
+Merge: 6a0a61c 9ebd09e
+Author: Mekbib-awono <mekbib.awono@gmail.com>
+Date:   Wed Jul 22 14:45:41 2020 +0300
+
+    Merge branch 'master' of https://github.com/christiantekle/scoreboard
+
+[33mcommit 6a0a61cb9b4fd69c1329eda3dbdf710504ff80ed[m
+Author: Mekbib-awono <mekbib.awono@gmail.com>
+Date:   Wed Jul 22 14:45:28 2020 +0300
+
+    removed submodule frontend created by create-react-app
+
+[33mcommit 9ebd09eba3789a163db55384f02a86670c0c83d2[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Mon Jul 20 23:24:43 2020 +0400
+
+    applying changes to the frontend
+
+[33mcommit a367ba459f6fbf4042981e8512db34ca20093b15[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Sat Jul 18 05:49:42 2020 +0400
+
+    status update reimplemented
+
+[33mcommit 157f29b5116875d743a2d51a539d4005acb5266e[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Sat Jul 18 04:53:30 2020 +0400
+
+    game status reimplemented
+
+[33mcommit 814abf0cca93c21239582da885e95a99f1018ae9[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 17 21:35:29 2020 +0400
+
+    finish game is implemented
+
+[33mcommit 8f5f955ca231d4cf397fbdfe37d38184ba5fd0be[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 17 21:15:07 2020 +0400
+
+    start game function is implemented
+
+[33mcommit 6191cec9e356e18d743fcb757f4fb9f17b573af9[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Thu Jul 16 23:12:13 2020 +0400
+
+    get players and update by id is implemented
+
+[33mcommit 2efb9bf041affd554c2980e3ffce3109d8be1cf3[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Wed Jul 15 06:13:17 2020 +0400
+
+    add score and get player is implemented, but few more updates are pending
+
+[33mcommit 6bff28207a74543fe5d4055992216981d0087ac0[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Wed Jul 15 04:39:26 2020 +0400
+
+    get player by name is implemented
+
+[33mcommit 2354fa3b0a1210de772cda349c86d7ea812075bd[m
+Author: Mekbib-awono <mekbib.awono@gmail.com>
+Date:   Tue Jul 14 23:54:10 2020 +0300
+
+    implemented adding player to games
+
+[33mcommit 5b550fe9fa967b72395114e1b084e995177f9244[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Tue Jul 14 23:35:30 2020 +0400
+
+    added player model and folders renamed
+
+[33mcommit 0a35aa4dc98a0ad2d8f95a638ff87443f1300ef5[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Sat Jul 11 03:16:44 2020 +0400
+
+    game details function is implemented
+
+[33mcommit 43daf9b42b82728f11715b5917f9b0b77fc1a338[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 23:18:36 2020 +0400
+
+    delete game function is implemented
+
+[33mcommit 4bf6003b815ec4470db21e2f77f699059e46d746[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 22:52:44 2020 +0400
+
+    add games function is implemented
+
+[33mcommit 35b82810bed482fe01e7cce47196f1138ffe5382[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 06:45:28 2020 +0400
+
+    get all games function is implemented
+
+[33mcommit 8b59101d874569a3d186db4ff53ca45c1a5e2968[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 06:13:40 2020 +0400
+
+    route file created
+
+[33mcommit 25d4f391c43635407aa54d2fbea1c6fe9b72da50[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 06:01:53 2020 +0400
+
+    model file created
+
+[33mcommit 31eaca8be836d120e292c9dda3b9b40520a4c866[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 04:49:18 2020 +0400
+
+    cleaning up the back-end
+
+[33mcommit 2fd8733317162e212c9ca538cafe1bc78615b77f[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 04:47:27 2020 +0400
+
+    mongoose installed and connected
+
+[33mcommit d4a0c7dc5dbfecba031b653c4bb2c8d2413893fe[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Fri Jul 10 04:37:35 2020 +0400
+
+    app.js file is created.
+
+[33mcommit 1c45c569e89a4a99c9c4ec3996ba9b7843ae7996[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Thu Jul 9 23:27:49 2020 +0400
+
+    front-end added
+
+[33mcommit 1d9c88065e69b1c0561bccc6b9a40c275d5b2899[m
+Author: christiantekle <christiantekle@users.noreply.github.com>
+Date:   Thu Jul 9 23:22:45 2020 +0400
+
+    Initial commit
