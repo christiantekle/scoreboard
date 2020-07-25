@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import Header from "./layout/Header";
 import About from "./pages/About";
+import Games from '../containers/Games'
 import AddGame from "../containers/AddGame";
 import axios from "axios";
 
@@ -13,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:8000/api/games").then((res) => {
-      console.log(res);
+      console.log(res.data);
       this.setState({ games: res.data });
     });
   }
@@ -39,6 +40,7 @@ class App extends Component {
               path="/"
               render={(props) => (
                 <React.Fragment>
+                  <Games games={this.state.games} />
                   <AddGame addGame={this.addGame}/>
                 </React.Fragment>
               )}
