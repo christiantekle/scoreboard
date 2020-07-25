@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -19,7 +20,7 @@ function Header() {
     setValue(newValue);
   };
   return (
-    <Paper className={classes.root}>
+    <Paper style={headerStyle} className={classes.root}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -34,8 +35,16 @@ function Header() {
           <Link to="/About"></Link>
         </Tab>
       </Tabs>
+      <h1 style={headerText}>Scoreboard</h1>
     </Paper>
   );
 }
-
+const headerStyle = {
+  background: "#009be5",
+  height:"18vh"
+}
+const headerText = {
+  color: '#000',
+  textAlign: 'center'
+}
 export default Header;

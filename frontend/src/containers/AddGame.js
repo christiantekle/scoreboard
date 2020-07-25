@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { TextField, Button } from "@material-ui/core";
 
 class AddGame extends Component {
   state = {
@@ -9,26 +10,40 @@ class AddGame extends Component {
     this.props.addGame(this.state.name);
     this.setState({ name: "" });
   };
+
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     return (
-      <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
-        <input
-          type="text"
-          name="name"
-          style={{ flex: "5", padding: "5px" }}
-          placeholder="Add Game here..."
-          value={this.state.value}
-          onChange={this.onChange}
-        />
-        <input
-          type="submit"
-          value="Add Game"
-          className="btn"
-          style={{ flex: "1" }}
-        />
-      </form>
+      <div style={formDiv}>
+          <hr />
+        <form onSubmit={this.onSubmit}>
+          <TextField
+          style={{ margin: 5 }}
+          
+            type="text"
+            name="name"
+            placeholder="Add Game here..."
+            value={this.state.value}
+            onChange={this.onChange}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            value="Add Game"
+            className="btn"
+            style={{ flex: "1" }}
+          >
+            Add Game
+          </Button>
+        </form>
+      </div>
     );
   }
 }
+const formDiv = {
+  margin: "0 auto",
+  textAlign: "center",
+};
 export default AddGame;
