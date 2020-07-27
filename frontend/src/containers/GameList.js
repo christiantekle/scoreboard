@@ -6,6 +6,7 @@ class GameList extends Component {
   render() {
     const { id, name } = this.props.game;
     return (
+        
       <Card style={cardStyle}>
         <CardContent>
           {name}
@@ -16,7 +17,12 @@ class GameList extends Component {
             aria-label="text primary button group"
           >
             <Button>Play</Button>
-            <Button color="secondary">Delete</Button>
+            <Button
+              color="secondary"
+            //   onClick={this.props.delGame.bind(this, id)}
+            >
+              Delete
+            </Button>
           </ButtonGroup>
         </CardContent>
       </Card>
@@ -26,10 +32,11 @@ class GameList extends Component {
 
 GameList.propTypes = {
   game: PropTypes.object.isRequired,
+  delGame: PropTypes.func.isRequired,
 };
 const btngrpStyle = {
-    float: 'right',
-}
+  float: "right",
+};
 const cardStyle = {
   width: "65%",
   padding: "5px",

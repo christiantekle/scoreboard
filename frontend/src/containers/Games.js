@@ -5,7 +5,7 @@ import GameList from "./GameList";
 class Games extends Component {
   render() {
     return this.props.games.map((game) => (
-      <GameList key={game.id} game={game} />
+      <GameList key={game.id} game={game} delGame={this.props.delGame}/>
     ));
   }
 }
@@ -13,6 +13,7 @@ class Games extends Component {
 //PropTpes
 Games.propTypes = {
   games: PropTypes.array.isRequired,
+  delGame: PropTypes.func.isRequired
 };
 
 export default Games;

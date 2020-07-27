@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import Header from "./layout/Header";
 import About from "./pages/About";
-import Games from '../containers/Games'
+import Games from "../containers/Games";
 import AddGame from "../containers/AddGame";
 import axios from "axios";
 
@@ -29,6 +29,14 @@ class App extends Component {
       .then((res) => this.setState({ games: [...this.state.games, res.data] }));
   };
 
+  //del game
+  delGame = (id) => {
+    axios.delete(`localhost:8000/api/games/${id}`).then(res =>
+      this.setState({
+        games: [...this.state.games.filter((game) => game.id !== id)],
+      })
+    );
+  };
   render() {
     return (
       <Router>
@@ -41,7 +49,7 @@ class App extends Component {
               render={(props) => (
                 <React.Fragment>
                   <Games games={this.state.games} />
-                  <AddGame addGame={this.addGame}/>
+                  <AddGame addGame={this.addGame} delGame={this.delGame} />
                 </React.Fragment>
               )}
             />
