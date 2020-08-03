@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { Card, CardContent, Button, ButtonGroup } from "@material-ui/core";
 
 class GameList extends Component {
+    
   render() {
     const { id, name } = this.props.game;
     return (
-        
       <Card style={cardStyle}>
         <CardContent>
           {name}
@@ -19,7 +19,7 @@ class GameList extends Component {
             <Button>Play</Button>
             <Button
               color="secondary"
-            //   onClick={this.props.delGame.bind(this, id)}
+              onClick={() => this.props.delGame(id)}
             >
               Delete
             </Button>

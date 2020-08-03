@@ -31,7 +31,7 @@ class App extends Component {
 
   //del game
   delGame = (id) => {
-    axios.delete(`localhost:8000/api/games/${id}`).then(res =>
+    axios.delete(`localhost:8000/api/games/${id}`).then((res) =>
       this.setState({
         games: [...this.state.games.filter((game) => game.id !== id)],
       })
