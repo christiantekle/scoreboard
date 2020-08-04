@@ -5,7 +5,7 @@ import { Card, CardContent, Button, ButtonGroup } from "@material-ui/core";
 class GameList extends Component {
     
   render() {
-    const { id, name } = this.props.game;
+    const { _id, name } = this.props.game;
     return (
       <Card style={cardStyle}>
         <CardContent>
@@ -19,7 +19,7 @@ class GameList extends Component {
             <Button>Play</Button>
             <Button
               color="secondary"
-              onClick={() => this.props.delGame(id)}
+              onClick={() => this.props.delGame(_id)}
             >
               Delete
             </Button>
