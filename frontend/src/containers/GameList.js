@@ -1,37 +1,44 @@
 import React, { Component } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Card, CardContent, Button, ButtonGroup } from "@material-ui/core";
+import Play from "./Play";
 
 class GameList extends Component {
-
-  routeChange = () => {
-    let path = `https://www.google.com/`;
-    let history = useHistory();
+  routeChange = (history) => {
+    const path = `https://www.google.com/`;
     history.push(path);
-  }
-  
+  };
+  _renderSubComponent = () => {
+    return <Play />;
+  };
+
   render() {
     const { _id, name } = this.props.game;
-    
+
     return (
       <Card style={cardStyle}>
         <CardContent>
           {name}
-          <ButtonGroup
-            style={btngrpStyle}
-            variant="text"
-            color="primary"
-            aria-label="text primary button group"
-          >
-            <Button onClick={this.routeChange}>Play</Button>
-            <Button
-              color="secondary"
-              onClick={() => this.props.delGame(_id)}
+          <Router>
+            <ButtonGroup
+              style={btngrpStyle}
+              variant="text"
+              color="primary"
+              aria-label="text primary button group"
             >
-              Delete
-            </Button>
-          </ButtonGroup>
+              <Link to="/Play">
+                <Button>Play</Button>
+              </Link>
+              <Button color="secondary" onClick={() => this.props.delGame(_id)}>
+                Delete
+              </Button>
+            </ButtonGroup>
+            <Switch>
+              <Route exact path="/Play" component={Play} />
+            </Switch>
+          </Router>
         </CardContent>
       </Card>
     );

@@ -31,11 +31,10 @@ class App extends Component {
 
   //del game
   delGame = (id) => {
-    console.log(id)
-    axios.delete(`http://localhost:8000/api/games/:${id}`).then((res) => {
+    axios.delete(`http://localhost:8000/api/games/${id}`).then((res) => {
       this.setState({
-        games: [...this.state.games.filter(game => game._id !== id)],
-      })
+        games: [...this.state.games.filter((game) => game._id !== id)],
+      });
     });
   };
   render() {
@@ -49,7 +48,7 @@ class App extends Component {
               path="/"
               render={(props) => (
                 <React.Fragment>
-                  <Games games={this.state.games}  delGame={this.delGame} />
+                  <Games games={this.state.games} delGame={this.delGame} />
                   <AddGame addGame={this.addGame} />
                 </React.Fragment>
               )}
