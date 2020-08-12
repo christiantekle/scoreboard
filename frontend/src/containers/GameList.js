@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Card, CardContent, Button, ButtonGroup } from "@material-ui/core";
 import Play from "./Play";
 
 class GameList extends Component {
-  routeChange = (history) => {
-    const path = `https://www.google.com/`;
-    history.push(path);
-  };
-  _renderSubComponent = () => {
-    return <Play />;
-  };
-
+  
   render() {
     const { _id, name } = this.props.game;
 
@@ -36,7 +28,7 @@ class GameList extends Component {
               </Button>
             </ButtonGroup>
             <Switch>
-              <Route exact path="/Play" component={Play} />
+              <Route path="/Play" component={Play} />
             </Switch>
           </Router>
         </CardContent>
