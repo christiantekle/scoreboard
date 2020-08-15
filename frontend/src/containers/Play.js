@@ -9,7 +9,7 @@ class Play extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:8000/api/players/id").then((res) => {
+    axios.get("http://localhost:8000/api/games").then((res) => {
       console.log(res.data);
       this.setState({ players: res.data });
     });
@@ -18,8 +18,7 @@ class Play extends Component {
   render() {
     return (
       <Container>
-        Play
-        <Players players={this.state.players} />
+        <Players players={this.state.players} /> 
       </Container>
     );
   }
