@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextField, Button } from "material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 
 class AddPlayer extends Component {
   state = {
