@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route , Switch} from "react-router-dom";
 import { Container } from "@material-ui/core";
+import axios from "axios";
 import Header from "./layout/Header";
 import About from "./pages/About";
 import Games from "../containers/Games";
 import AddGame from "../containers/AddGame";
-import axios from "axios";
+import Play from "../containers/Play";
+
+import * as gameActions from '../actions/game';
 
 class App extends Component {
   state = {
     games: [],
   };
 
-  componentDidMount() {
-    axios.get("http://localhost:8000/api/games").then((res) => {
-      console.log(res.data);
-      this.setState({ games: res.data });
-    });
+  async componentDidMount() {
+    const response = await gameActions.getGames();
+    this.setState({ games: response });
   }
 
   //add game
@@ -40,22 +41,25 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Container>
-            <Header />
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <React.Fragment>
-                  <Games games={this.state.games} delGame={this.delGame} />
-                  <AddGame addGame={this.addGame} />
-                </React.Fragment>
-              )}
-            />
-            <Route path="/About" component={About} />
-          </Container>
-        </div>
+        <Switch>
+            <div>
+              <Container>
+                <Header />
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <React.Fragment>
+                      <Games games={this.state.games} delGame={this.delGame} />
+                      <AddGame addGame={this.addGame} />
+                    </React.Fragment>
+                  )}
+                />
+                <Route path="/about" component={About} />
+                <Route path="/play/:id" component={Play} />
+              </Container>
+            </div>
+        </Switch>
       </Router>
     );
   }

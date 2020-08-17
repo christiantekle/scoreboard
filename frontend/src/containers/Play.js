@@ -6,14 +6,15 @@ import axios from "axios";
 
 class Play extends Component {
   state = {
+    game: null,
     players: [],
   };
 
-  componentDidMount() {
-    axios.get("http://localhost:8000/api/games").then((res) => {
-      console.log(res.data);
-      this.setState({ players: res.data });
-    });
+  async componentDidMount() {
+    const { match } = this.props;
+    const { params } = match;
+    const response = await axios.get(`http://localhost:8000/api/games/${params.id}`);
+    this.setState({ game: response.data });
   }
 
   //Add Player
@@ -34,11 +35,18 @@ class Play extends Component {
       });
     });
   };
+
   render() {
+    const { game } = this.state;
     return (
       <Container>
-        <Players players={this.state.players} deletePlayer={this.deletePlayer}/>
-        <AddPlayer addPlayer={this.addPlayer} />
+        {game ? (
+          <div>
+            <h2>Play Game {game && game.name}</h2>
+            <Players players={game && game.players} deletePlayer={this.deletePlayer}/>
+            <AddPlayer addPlayer={this.addPlayer} />
+          </div>
+        ): <div>Loading...</div>}
       </Container>
     );
   }

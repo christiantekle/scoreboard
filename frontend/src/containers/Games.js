@@ -4,9 +4,10 @@ import GameList from "./GameList";
 
 class Games extends Component {
   render() {
-    return this.props.games.map((game) => (
+    const { games } = this.props;
+    return games ? games.map((game) => (
       <GameList key={game.id} game={game} delGame={this.props.delGame}/>
-    ));
+    )) : <div>Empty List</div>;
   }
 }
 

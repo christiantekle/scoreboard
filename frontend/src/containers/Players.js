@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 class Players extends Component {
     render(){
-        return this.props.players.map((player) => (
+        const { players } = this.props;
+        return players && players.map((player) => (
             <PlayersList key={player._id} player={player} deletePlayer={this.props.deletePlayer}/>
         ));
     }

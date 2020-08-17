@@ -1,36 +1,32 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Card, CardContent, Button, ButtonGroup } from "@material-ui/core";
 import Play from "./Play";
 
 class GameList extends Component {
-  
+
   render() {
     const { _id, name } = this.props.game;
+    const { history } = this.props;
 
     return (
       <Card style={cardStyle}>
         <CardContent>
           {name}
-          <Router>
-            <ButtonGroup
-              style={btngrpStyle}
-              variant="text"
-              color="primary"
-              aria-label="text primary button group"
-            >
-              <Link to="/Play">
-                <Button>Play</Button>
-              </Link>
-              <Button color="secondary" onClick={() => this.props.delGame(_id)}>
-                Delete
-              </Button>
-            </ButtonGroup>
-            <Switch>
-              <Route path="/Play" component={Play} />
-            </Switch>
-          </Router>
+          <ButtonGroup
+            style={btngrpStyle}
+            variant="text"
+            color="primary"
+            aria-label="text primary button group"
+          >
+
+            <Button onClick={() => history.push(`/play/${_id}`)}>Play</Button>
+
+            <Button color="secondary" onClick={() => this.props.delGame(_id)}>
+              Delete
+            </Button>
+          </ButtonGroup>
         </CardContent>
       </Card>
     );
@@ -52,4 +48,4 @@ const cardStyle = {
   fontWeight: "500",
 };
 
-export default GameList;
+export default withRouter(GameList);

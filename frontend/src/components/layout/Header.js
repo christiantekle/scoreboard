@@ -41,7 +41,7 @@ function Header() {
 }
 const headerStyle = {
   background: "#009be5",
-  height:"18vh"
+  height:"28vh"
 }
 const headerText = {
   color: '#000',
