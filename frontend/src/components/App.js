@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route , Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import axios from "axios";
 import Header from "./layout/Header";
@@ -8,7 +8,7 @@ import Games from "../containers/Games";
 import AddGame from "../containers/AddGame";
 import Play from "../containers/Play";
 
-import * as gameActions from '../actions/game';
+import * as gameActions from "../actions/game";
 
 class App extends Component {
   state = {
@@ -21,14 +21,32 @@ class App extends Component {
   }
 
   //add game
-  addGame = (name) => {
-    axios
-      .post("http://localhost:8000/api/games", {
+
+  // async addGame (name) {
+  //   const response = await gameActions.addGame(name);
+  //   this.setState({ games: [...this.state.games ]} )
+  //  }
+  async addGame(name) {
+    try {
+      const response = await axios.post("http://localhost:8000/api/games", {
         name,
         status: "Game Started",
-      })
-      .then((res) => this.setState({ games: [...this.state.games, res.data] }));
-  };
+      });
+      this.setState({ games: [...this.state.games, response ] });
+    }
+    catch(error) {
+      console.log(error);
+    }
+  }
+ 
+  // addGame = (name) => {
+  //   axios
+  //     .post("http://localhost:8000/api/games", {
+  //       name,
+  //       status: "Game Started",
+  //     })
+  //     .then((res) => this.setState({ games: [...this.state.games, res.data] }));
+  // };
 
   //del game
   delGame = (id) => {
@@ -42,23 +60,23 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-            <div>
-              <Container>
-                <Header />
-                <Route
-                  exact
-                  path="/"
-                  render={(props) => (
-                    <React.Fragment>
-                      <Games games={this.state.games} delGame={this.delGame} />
-                      <AddGame addGame={this.addGame} />
-                    </React.Fragment>
-                  )}
-                />
-                <Route path="/about" component={About} />
-                <Route path="/play/:id" component={Play} />
-              </Container>
-            </div>
+          <div>
+            <Container>
+              <Header />
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <React.Fragment>
+                    <Games games={this.state.games} delGame={this.delGame} />
+                    <AddGame addGame={this.addGame} />
+                  </React.Fragment>
+                )}
+              />
+              <Route path="/about" component={About} />
+              <Route path="/play/:id" component={Play} />
+            </Container>
+          </div>
         </Switch>
       </Router>
     );

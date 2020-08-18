@@ -18,13 +18,16 @@ class Play extends Component {
   }
 
   //Add Player
-  addPlayer = (name, id) => {
+  addPlayer = (name) => {
+    const { match } = this.props;
+    const { params } = match;
+
     axios
-      .post(`http://localhost:8000/api/games/${id}`, {
+      .post(`http://localhost:8000/api/games/${params.id}`, {
         name,
       })
       .then((res) =>
-        this.setState({ players: [...this.state.plaers, res.data] })
+        this.setState({ players: [...this.state.players, res.data] })
       );
   };
 
