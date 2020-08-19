@@ -17,22 +17,32 @@ class Play extends Component {
     this.setState({ game: response.data });
   }
 
+  //addPlayer
+
+  // async addPlayer(name) {
+  //   const res = await axios.put(`http://localhost:8000/api/games/`, {
+  //     name,
+  //   });
+  //   this.setState({ players: [...this.state.players, res] });
+  // }
+
   //Add Player
   addPlayer = (name) => {
     const { match } = this.props;
     const { params } = match;
 
     axios
-      .post(`http://localhost:8000/api/games/${params.id}`, {
+      .put(`http://localhost:8000/api/games/${params.id}`, {
         name,
       })
       .then((res) =>
         this.setState({ players: [...this.state.players, res.data] })
       );
+    console.log("Test");
   };
 
   deletePlayer = (id) => {
-    axios.delete(`http://localhost:8000/api/games/${id}`).then((res) => {
+    axios.delete(`http://localhost:8000/api/players/${id}`).then((res) => {
       this.setState({
         players: [...this.state.players.filter((player) => player._id !== id)],
       });
@@ -46,10 +56,15 @@ class Play extends Component {
         {game ? (
           <div>
             <h2>Play Game {game && game.name}</h2>
-            <Players players={game && game.players} deletePlayer={this.deletePlayer}/>
+            <Players
+              players={game && game.players}
+              deletePlayer={this.deletePlayer}
+            />
             <AddPlayer addPlayer={this.addPlayer} />
           </div>
-        ): <div>Loading...</div>}
+        ) : (
+          <div>Loading...</div>
+        )}
       </Container>
     );
   }

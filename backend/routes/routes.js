@@ -11,5 +11,6 @@ router.put("/api/status/:id", gameController.changeGameStatus);
 
 router.put("/api/games/:id", playerController.addPlayer);
 router.get("/api/players/:id", playerController.getPlayer);
+router.delete("/api/players/:id", playerController.deletePlayer);
 router.put("/api/score/:id", playerController.addScore);
 module.exports = router;

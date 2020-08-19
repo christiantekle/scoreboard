@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Button} from '@material-ui/core'
 import PropTypes from 'prop-types';
 
 export class PlayersList extends Component {
@@ -6,7 +7,7 @@ export class PlayersList extends Component {
         const { _id, name } = this.props.player;
         return(
             <div>
-                {name}
+                {name} <Button onClick={() => this.props.deletePlayer(_id)}>Delete Player</Button>
             </div>
         )
     }

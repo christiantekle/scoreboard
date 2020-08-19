@@ -41,6 +41,17 @@ const getPlayer = async (ctx) => {
   }
 };
 
+const deletePlayer = async (ctx) => {
+  try {
+    await Player.deleteOne({
+      _id: ctx.params.id,
+    });
+    ctx.body = "player deleted";
+  } catch (err) {
+    ctx.body = "Error: " + err;
+  }
+};
+
 const addScore = async (ctx) => {
   var game = new Game();
   if (game.status === "Game Over") {
@@ -49,11 +60,8 @@ const addScore = async (ctx) => {
   }
   const { body } = ctx.request;
   try {
-    await Player.updateOne(
-      { _id: ctx.params.id },
-      { score: body.score }
-    );
-    
+    await Player.updateOne({ _id: ctx.params.id }, { score: body.score });
+
     ctx.body = "score updated";
   } catch (err) {
     ctx.body = "Error: " + err;
@@ -62,4 +70,5 @@ const addScore = async (ctx) => {
 
 module.exports.addPlayer = addPlayer;
 module.exports.getPlayer = getPlayer;
+module.exports.deletePlayer = deletePlayer;
 module.exports.addScore = addScore;
