@@ -12,6 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 function Header() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -19,6 +20,7 @@ function Header() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <Paper style={headerStyle} className={classes.root}>
       <Tabs
@@ -28,8 +30,8 @@ function Header() {
         textColor="primary"
         centered
       >
-        <Tab label="Home" to="/">
-          <Link to="/"></Link>
+        <Tab label="Home">
+         
         </Tab>
         <Tab label="About" to="/About">
           <Link to="/About"></Link>
