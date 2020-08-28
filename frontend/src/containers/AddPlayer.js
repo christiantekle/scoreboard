@@ -18,8 +18,8 @@ class AddPlayer extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <TextField
-            type="name"
-            text="text"
+            type="text"
+            name="name"
             placeholder="Add Player here..."
             value={this.state.value}
             onChange={this.onChange}

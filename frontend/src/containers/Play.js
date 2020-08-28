@@ -19,50 +19,29 @@ class Play extends Component {
     this.setState({ game: response.data });
   }
 
-  //addPlayer
-
-  // async addPlayer(name) {
-  //   const res = await axios.put(`http://localhost:8000/api/games/`, {
-  //     name,
-  //   });
-  //   this.setState({ players: [...this.state.players, res] });
-  // }
-
-  //Add Player
-  addPlayer = (name) => {
-    const { match } = this.props;
-    const { params } = match;
-
-    axios
-      .put(`http://localhost:8000/api/games/${params.id}`, {
-        name,
-      })
-      .then((res) =>
-        this.setState({ players: [...this.state.players, res.data] })
-      );
-    console.log(params.id);
-  };
   //AddPlayer
+  addPlayer = async (name) => {
+    try {
+      const { match } = this.props;
+      const { params } = match;
 
-  // async addPlayer(name) {
-  //   const { match } = this.props;
-  //   const { params } = match;
+      const response = await axios.put(
+        `http://localhost:8000/api/games/${params.id}`,
+        {
+          name,
+        }
+      );
 
-  //   try{
-  //     const response = await axios.put(`http://localhost:8000/api/games/${params.id}`, {
-  //       name,
-  //     });
-  //     this.setState({ players: [...this.state.players, response ] });
-  //   }catch(err) {
-  //     console.log(err)
-  //   }
-  // }
+      this.setState({ players: [...this.state.players, response] });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+ 
   //Delete Player
   async deletePlayer(id) {
     try {
-      await axios.delete(
-        `http://localhost:8000/api/players/${id}`
-      );
+      await axios.delete(`http://localhost:8000/api/players/${id}`);
       this.setState({
         players: [...this.state.players.filter((player) => player._id !== id)],
       });
