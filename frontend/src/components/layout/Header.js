@@ -30,9 +30,7 @@ function Header() {
         textColor="primary"
         centered
       >
-        <Tab label="Home">
-         
-        </Tab>
+        
         <Tab label="About" to="/About">
           <Link to="/About"></Link>
         </Tab>
