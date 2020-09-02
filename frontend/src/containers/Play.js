@@ -38,6 +38,16 @@ class Play extends Component {
     }
   };
  
+  //AddScore
+
+addScore = (score, _id) => {
+  axios
+  .put(`http://localhost:8000/api/score/${_id}`, {
+    score,
+  })
+  .then(res => this.setState( { score: []} ))
+
+}
   //Delete Player
   async deletePlayer(id) {
     try {
@@ -57,6 +67,7 @@ class Play extends Component {
         {game ? (
           <div>
             <h2>Play Game {game && game.name}</h2>
+         
             <Players
               players={game && game.players}
               deletePlayer={this.deletePlayer}
